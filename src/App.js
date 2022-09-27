@@ -1,7 +1,5 @@
-import { Button } from '@mui/material';
-import Settings from '@mui/icons-material/Settings';
 import Navbar from './components/Navbar';
-import Feed from './components/Feed';
+import Feed from './components/Exchanges';
 import Sidebar from './components/Sidebar';
 import { Box, Stack } from '@mui/material';
 
