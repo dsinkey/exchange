@@ -2,11 +2,14 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Avatar, Card, CardHeader, CardContent, Typography } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import { useNavigate } from "react-router-dom";
 import ContentGrid from "../ContentGrid";
 import ExchangeDetailsNewsList from "./ExchangeDetailsNewsList";
 import { btcFormat } from "../../helpers";
+import { Facebook, RedditIcon, TelegramIcon } from "@mui/icons-material/Facebook";
+import { Link } from "@mui/material";
 
 const ExchangeDetails = () => {
   const [exchangeDetails, setExchangeDetails] = useState({});
@@ -16,6 +19,7 @@ const ExchangeDetails = () => {
     navigate(`/`, { replace: true });
   }, [navigate]);
   const formateBTC = btcFormat();
+  const { facebook_url, reddit_url, telegram_url } = exchangeDetails;
 
   useEffect(() => {
     axios
@@ -92,6 +96,31 @@ const ExchangeDetails = () => {
             exchangeDetails.year_established
               ? `Established in ${exchangeDetails.year_established}`
               : ""
+          }
+          action={
+            <div>
+              {facebook_url ? (
+                <Link href={facebook_url}>
+                  <IconButton>
+                    <Facebook sx={{ color: "#4267B2" }} />
+                  </IconButton>
+                </Link>
+              ) : null}
+              {reddit_url ? (
+                <Link href={reddit_url}>
+                  <IconButton>
+                    <RedditIcon sx={{ color: "#FF4500" }} />
+                  </IconButton>
+                </Link>
+              ) : null}
+              {telegram_url ? (
+                <Link href={telegram_url}>
+                  <IconButton>
+                    <TelegramIcon sx={{ color: "#229ED9" }} />
+                  </IconButton>
+                </Link>
+              ) : null}
+            </div>
           }
         />
         <CardContent>

@@ -46,7 +46,7 @@ const ExchangeCard = ({ exchange }) => {
       size: 6,
     },
     {
-      content: `Centralized: ${exchange?.centralized?.toString()}`,
+      content: `Has Trading Incentive: ${exchange?.has_trading_incentive?.toString()}`,
       size: 6,
     },
   ];
