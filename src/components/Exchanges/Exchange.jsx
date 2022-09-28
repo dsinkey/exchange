@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
@@ -7,24 +7,33 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Grid from "@mui/material/Grid";
-import { CurrencyExchangeOutlined } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const ExchangeCard = ({ exchange }) => {
-  console.log("exchange", exchange);
+  const navigate = useNavigate();
+  const handleOnClick = useCallback(
+    (exchange) => {
+      console.log("exchange", exchange);
+      navigate(`/exchange/${exchange.id}`, { replace: true });
+    },
+    [navigate]
+  );
 
-  let dollarUS = Intl.NumberFormat("en-US", {
+  const btcFormat = Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "BTC",
   });
   return (
-    <Card>
+    <Card
+      sx={{
+        "&:hover": {
+          boxShadow: "-1px 10px 29px 0px rgba(0,0,0,0.8)",
+        },
+      }}
+      onClick={() => handleOnClick(exchange)}
+    >
       <CardHeader
-        avatar={<Avatar alt="Remy Sharp" src={exchange.image} />}
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
+        avatar={<Avatar src={exchange.image} />}
         title={exchange.name}
         subheader={`Established in ${exchange.year_established}`}
       />
@@ -37,12 +46,12 @@ const ExchangeCard = ({ exchange }) => {
             {`Trust Score: ${exchange.trust_score}`}
           </Grid>
           <Grid item xs={6}>
-            {`Trading Volume 24 Hour: ${dollarUS.format(
+            {`Trading Volume 24 Hour: ${btcFormat.format(
               exchange.trade_volume_24h_btc
             )}`}
           </Grid>
           <Grid item xs={6}>
-            {`Trading Volume 24 Hour Normalized: ${dollarUS.format(
+            {`Trading Volume 24 Hour Normalized: ${btcFormat.format(
               exchange.trade_volume_24h_btc
             )}`}
           </Grid>
@@ -50,7 +59,7 @@ const ExchangeCard = ({ exchange }) => {
             {`Country: ${exchange.country ? exchange.country : "N/A"}`}
           </Grid>
           <Grid item xs={6}>
-            {`Trading Volume 24 Hour Normalized: ${dollarUS.format(
+            {`Trading Volume 24 Hour Normalized: ${btcFormat.format(
               exchange.trade_volume_24h_btc
             )}`}
           </Grid>

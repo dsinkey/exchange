@@ -6,14 +6,14 @@ const StyledToolbar = styled(Toolbar)({
   justifyContent: "space-between",
 });
 
-const Feed = () => {
+const NavBar = () => {
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "blue" }}>
+    <AppBar position="sticky" sx={{ backgroundColor: "#00ff00" }}>
       <StyledToolbar>
-        <Typography>Nav</Typography>
+        <Typography sx={{ color: "white", fontSize: 24 }}>StackFish</Typography>
       </StyledToolbar>
     </AppBar>
   );
 };
 
-export default Feed;
+export default NavBar;
