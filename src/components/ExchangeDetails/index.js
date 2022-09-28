@@ -8,7 +8,11 @@ import { useNavigate } from "react-router-dom";
 import ContentGrid from "../ContentGrid";
 import ExchangeDetailsNewsList from "./ExchangeDetailsNewsList";
 import { btcFormat } from "../../helpers";
-import { Facebook, RedditIcon, TelegramIcon } from "@mui/icons-material/Facebook";
+import {
+  Facebook,
+  Reddit as RedditIcon,
+  Telegram as TelegramIcon,
+} from "@mui/icons-material";
 import { Link } from "@mui/material";
 
 const ExchangeDetails = () => {
