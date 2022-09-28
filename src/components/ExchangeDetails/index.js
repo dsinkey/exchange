@@ -12,6 +12,7 @@ import {
   Facebook,
   Reddit as RedditIcon,
   Telegram as TelegramIcon,
+  Twitter as TwitterIcon,
 } from "@mui/icons-material";
 import { Link } from "@mui/material";
 
@@ -23,7 +24,7 @@ const ExchangeDetails = () => {
     navigate(`/`, { replace: true });
   }, [navigate]);
   const formateBTC = btcFormat();
-  const { facebook_url, reddit_url, telegram_url } = exchangeDetails;
+  const { facebook_url, reddit_url, telegram_url, twitter_handle } = exchangeDetails;
 
   useEffect(() => {
     axios
@@ -107,6 +108,13 @@ const ExchangeDetails = () => {
                 <Link href={facebook_url}>
                   <IconButton>
                     <Facebook sx={{ color: "#4267B2" }} />
+                  </IconButton>
+                </Link>
+              ) : null}
+              {twitter_handle ? (
+                <Link href={`https://twitter.com/${twitter_handle}`}>
+                  <IconButton>
+                    <TwitterIcon sx={{ color: "#1DA1F2" }} />
                   </IconButton>
                 </Link>
               ) : null}
