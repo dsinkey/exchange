@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Stack } from "@mui/material";
+import { Stack } from "@mui/material";
 import ExchangeCard from "./Exchange";
 
 const Exchanges = ({ exchanges }) => {
