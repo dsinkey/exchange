@@ -1,24 +1,18 @@
 import React, { useEffect, useState, useCallback } from "react";
-import {
-  Facebook,
-  Reddit as RedditIcon,
-  Telegram as TelegramIcon,
-  Twitter as TwitterIcon,
-  ArrowBack,
-} from "@mui/icons-material";
+import { ArrowBack } from "@mui/icons-material";
 import {
   Avatar,
   Card,
   CardHeader,
   CardContent,
   Typography,
-  Link,
   IconButton,
 } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import ContentGrid from "../components/ContentGrid";
+import SocialMediaIcons from "../components/SocialMediaIcons";
 import ExchangeDetailsNewsList from "../components/ExchangeDetails/ExchangeDetailsNewsList";
 import { btcFormat } from "../helpers";
 
@@ -102,36 +96,12 @@ const ExchangeDetails = () => {
               : ""
           }
           action={
-            <div>
-              {facebook_url ? (
-                <Link href={facebook_url}>
-                  <IconButton>
-                    <Facebook sx={{ color: "#4267B2" }} />
-                  </IconButton>
-                </Link>
-              ) : null}
-              {twitter_handle ? (
-                <Link href={`https://twitter.com/${twitter_handle}`}>
-                  <IconButton>
-                    <TwitterIcon sx={{ color: "#1DA1F2" }} />
-                  </IconButton>
-                </Link>
-              ) : null}
-              {reddit_url ? (
-                <Link href={reddit_url}>
-                  <IconButton>
-                    <RedditIcon sx={{ color: "#FF4500" }} />
-                  </IconButton>
-                </Link>
-              ) : null}
-              {telegram_url ? (
-                <Link href={telegram_url}>
-                  <IconButton>
-                    <TelegramIcon sx={{ color: "#229ED9" }} />
-                  </IconButton>
-                </Link>
-              ) : null}
-            </div>
+            <SocialMediaIcons
+              facebook_url={facebook_url}
+              reddit_url={reddit_url}
+              telegram_url={telegram_url}
+              twitter_handle={twitter_handle}
+            />
           }
         />
         <CardContent>
