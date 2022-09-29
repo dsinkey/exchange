@@ -1,18 +1,15 @@
 import React from "react";
-import { useExchanges } from "../../state/ExchangesContextProvider";
-import Exchanges from "./Exchanges";
+import { Stack } from "@mui/material";
+import ExchangeCard from "./ExchangeCard";
 
-const ExchangeFeed = () => {
-  const { status, exchanges } = useExchanges();
-
-  switch (status) {
-    case "LOADING":
-      return "LOADING";
-    case "COMPLETE":
-      return <Exchanges exchanges={exchanges} />;
-    default:
-      return "Loading...";
-  }
+const Exchanges = ({ exchanges }) => {
+  return (
+    <Stack spacing={3} justifyContent="center">
+      {exchanges.map((exchange, index) => (
+        <ExchangeCard key={index} exchange={exchange} />
+      ))}
+    </Stack>
+  );
 };
 
-export default ExchangeFeed;
+export default Exchanges;

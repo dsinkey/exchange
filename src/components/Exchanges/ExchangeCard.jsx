@@ -12,7 +12,6 @@ const ExchangeCard = ({ exchange }) => {
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     (exchange) => {
-      console.log("exchange", exchange);
       navigate(`/exchange/${exchange.id}`, { replace: true });
     },
     [navigate]

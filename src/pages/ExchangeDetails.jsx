@@ -1,20 +1,26 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import { Avatar, Card, CardHeader, CardContent, Typography } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import { useNavigate } from "react-router-dom";
-import ContentGrid from "../ContentGrid";
-import ExchangeDetailsNewsList from "./ExchangeDetailsNewsList";
-import { btcFormat } from "../../helpers";
 import {
   Facebook,
   Reddit as RedditIcon,
   Telegram as TelegramIcon,
   Twitter as TwitterIcon,
+  ArrowBack,
 } from "@mui/icons-material";
-import { Link } from "@mui/material";
+import {
+  Avatar,
+  Card,
+  CardHeader,
+  CardContent,
+  Typography,
+  Link,
+  IconButton,
+} from "@mui/material";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+import ContentGrid from "../components/ContentGrid";
+import ExchangeDetailsNewsList from "../components/ExchangeDetails/ExchangeDetailsNewsList";
+import { btcFormat } from "../helpers";
 
 const ExchangeDetails = () => {
   const [exchangeDetails, setExchangeDetails] = useState({});

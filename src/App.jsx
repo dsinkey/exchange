@@ -2,8 +2,8 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import { Box, Stack } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import ExchangeList from "./components/Exchanges";
-import ExchangeDetail from "./components/ExchangeDetails";
+import ExchangeList from "./pages/ExchangesList";
+import ExchangeDetail from "./pages/ExchangeDetails";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
