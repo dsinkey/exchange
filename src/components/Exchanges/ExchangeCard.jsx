@@ -8,7 +8,7 @@ import ContentGrid from "../ContentGrid";
 import { useNavigate } from "react-router-dom";
 import { btcFormat } from "../../helpers";
 
-const ExchangeCard = ({ exchange }) => {
+const ExchangeCard = ({ exchange, index }) => {
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     (exchange) => {
@@ -52,12 +52,14 @@ const ExchangeCard = ({ exchange }) => {
 
   return (
     <Card
+      id={`exchange-list-card-${index}`}
       sx={{
         "&:hover": {
           boxShadow: "-1px 10px 29px 0px rgba(0,0,0,0.8)",
         },
       }}
       onClick={() => handleOnClick(exchange)}
+      data-cy={`exchange-list-card`}
     >
       <CardHeader
         avatar={<Avatar src={exchange.image} />}

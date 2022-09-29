@@ -19,6 +19,8 @@ const Sidebar = () => {
         {exchanges?.map((exchange, index) => {
           return (
             <ListItem
+              data-cy={`sidebar-list-item`}
+              id={`exchange-sidebar-list-item-${index}`}
               sx={{
                 "&:hover": {
                   boxShadow: "-1px 5px 5px 0px rgba(0,0,0,0.5)",

@@ -69,7 +69,7 @@ const ExchangeDetails = () => {
   ];
 
   return (
-    <div>
+    <div id="exchange-details-card">
       <div
         style={{
           display: "flex",
@@ -86,6 +86,7 @@ const ExchangeDetails = () => {
       </div>
       <Card>
         <CardHeader
+          id="exchange-details-card-header"
           avatar={
             <Avatar sx={{ height: 100, width: 100 }} src={exchangeDetails.image} />
           }
@@ -104,7 +105,7 @@ const ExchangeDetails = () => {
             />
           }
         />
-        <CardContent>
+        <CardContent id="exchange-details-card-content">
           <ContentGrid gridContents={gridContents} />
           <Typography variant="body2" color="text.secondary">
             {exchangeDetails.description}

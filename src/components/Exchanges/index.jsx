@@ -6,7 +6,7 @@ const Exchanges = ({ exchanges }) => {
   return (
     <Stack spacing={3} justifyContent="center">
       {exchanges.map((exchange, index) => (
-        <ExchangeCard key={index} exchange={exchange} />
+        <ExchangeCard key={index} exchange={exchange} index={index} />
       ))}
     </Stack>
   );

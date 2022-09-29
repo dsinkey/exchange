@@ -8,9 +8,13 @@ const StyledToolbar = styled(Toolbar)({
 
 const NavBar = () => {
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "#00ff00" }}>
+    <AppBar
+      id="exchange-list-navbar"
+      position="sticky"
+      sx={{ backgroundColor: "#00ff00" }}
+    >
       <StyledToolbar>
-        <Typography sx={{ color: "white", fontSize: 24 }}>StackFish</Typography>
+        <Typography sx={{ color: "white", fontSize: 24 }}>StakeFish</Typography>
       </StyledToolbar>
     </AppBar>
   );
