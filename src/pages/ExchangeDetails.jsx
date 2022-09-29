@@ -80,21 +80,14 @@ const ExchangeDetails = () => {
         style={{
           display: "flex",
           flexDirection: "row",
+          alignItems: "center",
         }}
       >
-        <ArrowBack
-          sx={{
-            height: 50,
-            width: 50,
-            "&:hover": {
-              color: "grey",
-            },
-          }}
-          color={"black"}
-          onClick={handleOnClick}
-        />
-        <Typography variant="h3" color={"black"}>
-          Exchange List
+        <IconButton onClick={handleOnClick} size="large">
+          <ArrowBack sx={{ height: 40, width: 40 }} />
+        </IconButton>
+        <Typography variant="h4" color={"black"}>
+          Back to Exchange List
         </Typography>
       </div>
       <Card>
