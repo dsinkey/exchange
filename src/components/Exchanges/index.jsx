@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Stack } from "@mui/material";
 import ExchangeCard from "./ExchangeCard";
-import axios from "axios";
 
-const Exchanges = () => {
-  const [exchanges, setExchanges] = useState([]);
-  const [displayExchanges, setDisplayExchanges] = useState([]);
+const Exchanges = ({ exchanges }) => {
+  const [displayExchanges, setDisplayExchanges] = useState(exchanges);
   const [page, setPage] = useState(0);
 
   useEffect(() => {
-    axios
-      .get("https://api.coingecko.com/api/v3/exchanges")
-      .then((res) => {
-        setExchanges(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  useEffect(() => {
     if (page >= 0) {
-      const range = page === 0 ? [0, 10] : [page * 10, page * 10 + 10];
+      const range = page === 0 ? [0, 10] : [page * 10 - 1, page * 10 + 9];
       const returnData = exchanges.slice(range[0], range[1]);
 
       setDisplayExchanges(returnData);
