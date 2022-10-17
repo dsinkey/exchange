@@ -1,28 +1,26 @@
-import React, { useContext, useState, useEffect, createContext } from 'react';
-import axios from 'axios';
+import React, { useContext, useState, useEffect, createContext } from "react";
+import axios from "axios";
 const ExchangeContext = createContext();
 export const useExchanges = () => useContext(ExchangeContext);
 
 const ExchangeProvider = ({ children }) => {
   const [exchanges, setExchanges] = useState([]);
-  const [status, setStatus] = useState('LOADING');
+  const [status, setStatus] = useState("LOADING");
 
   useEffect(() => {
     axios
-      .get('https://api.coingecko.com/api/v3/exchanges')
+      .get("https://api.coingecko.com/api/v3/exchanges")
       .then((res) => {
-        setExchanges(res.data.slice(0, 10));
-        setStatus('COMPLETE');
+        setExchanges(res.data);
+        setStatus("COMPLETE");
       })
-      .catch((err) => setStatus('ERROR'));
+      .catch((err) => setStatus("ERROR"));
   }, []);
 
   const value = { exchanges, status };
 
   return (
-    <ExchangeContext.Provider value={value}>
-      {children}
-    </ExchangeContext.Provider>
+    <ExchangeContext.Provider value={value}>{children}</ExchangeContext.Provider>
   );
 };
 
