@@ -8,8 +8,7 @@ const Exchanges = ({ exchanges }) => {
 
   useEffect(() => {
     if (page >= 0) {
-      const range = page === 0 ? [0, 10] : [page * 10 - 1, page * 10 + 9];
-      const returnData = exchanges.slice(range[0], range[1]);
+      const returnData = exchanges.slice(page * 10, page * 10 + 10);
 
       setDisplayExchanges(returnData);
     }
